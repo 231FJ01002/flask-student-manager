@@ -18,6 +18,9 @@ class Student(db.Model):
     student_class = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False)
 
+with app.app_context(): 
+        db.create_all()
+
 
 
 @app.route('/')
@@ -82,6 +85,4 @@ def update_student(student_id):
 
 
 if __name__ == '__main__':
-    with app.app_context(): 
-        db.create_all()
     app.run(debug=True)
